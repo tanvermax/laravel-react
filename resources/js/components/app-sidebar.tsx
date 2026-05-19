@@ -38,13 +38,6 @@ const iconMap: Record<string, any> = {
 
     FolderGit2: FolderGit2,
 };
-// const mainNavItems: NavItem[] = [
-//     {
-//         title: 'Dashboard',
-//         href: dashboard(),
-//         icon: LayoutGrid,
-//     },
-// ];
 
 const footerNavItems: NavItem[] = [
     {
@@ -79,42 +72,19 @@ export function AppSidebar({ userRole }: AppSidebarProps) {
 
         const teacherItems: NavItem[] = [
             {
-                title: 'My Courses',
-                href: '/teacher/courses',
+                title: 'My Class',
+                href: '/teacher/classes',
                 icon: BookOpen,
             },
-            {
-                title: 'Create Course',
-                href: '/teacher/courses/create',
-                icon: PlusCircle,
-            },
-            { title: 'Students', href: '/teacher/students', icon: Users },
-            {
-                title: 'Assignments',
-                href: '/teacher/assignments',
-                icon: FileText,
-            },
+           
         ];
         const studentItems: NavItem[] = [
             {
-                title: 'My Enrollments',
+                title: 'My Class',
                 href: '/student/enrollments',
                 icon: GraduationCap,
-            },
-            {
-                title: 'Available Courses',
-                href: '/student/courses',
-                icon: BookOpen,
-            },
-            {
-                title: 'My Assignments',
-                href: '/student/assignments',
-                icon: FileText,
-            },
-            {
-                title: 'Progress',
-                href: '/student/progress',
-                icon: TrendingUp,
+       
+            
             },
         ];
         if (role === 'teacher') {

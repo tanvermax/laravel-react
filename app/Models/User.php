@@ -23,7 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'age',
-        'role',  // user, teacher, student, admin
+        'role',  
     ];
     /**
      * Get the attributes that should be cast.
@@ -110,5 +110,21 @@ $teacherMenus = [
             'student' => array_merge($commonMenus, $studentMenus),
         };
 
+    }
+
+   public function classes()
+    {
+        return $this->hasMany(ClasssModel::class, 'teacher_id');
+    }
+    public function enrolledClasses()
+    {
+        return $this->belongsToMany(ClasssModel::class, 'class_student', 'student_id', 'class_id')
+                    ->withPivot('enrolled_at', 'status')
+                    ->withTimestamps();
+    }
+
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class, 'student_id');
     }
 }
